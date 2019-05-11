@@ -1,4 +1,6 @@
-package sort;
+package dspractice.sort;
+
+import common.CommonFunctions;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -14,7 +16,7 @@ public class HeapSort {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter array");
 		String numbersStr = sc.nextLine();
-		int[] array = getArrayFromString(numbersStr);
+		int[] array = CommonFunctions.getArrayFromString(numbersStr);
 		int[] sortedArray = heapSort(array);
 		System.out.println(Arrays.toString(sortedArray));
 	}
@@ -26,7 +28,7 @@ public class HeapSort {
 		}
 
 		for (int i = length - 1; i >= 0; i--) {
-			swap(passedArray, i, 0);
+			CommonFunctions.swap(passedArray, i, 0);
 			createMaxHeap(passedArray, i, 0);
 		}
 		return passedArray;
@@ -58,7 +60,7 @@ public class HeapSort {
 			largestValueIndex = rightChildIndex;
 		}
 		if (largestValueIndex != index) {
-			swap(passedArray, largestValueIndex, index);
+			CommonFunctions.swap(passedArray, largestValueIndex, index);
 			createMaxHeap(passedArray, length, largestValueIndex);
 		}
 	}
@@ -79,17 +81,6 @@ public class HeapSort {
 //			createMaxHeap(arrayPassed, arrLength, passedLargestIndx);
 //		}
 //	}
-
-	private static void swap(int[] arrayPassed, int id1, int id2) {
-		int tmp = arrayPassed[id1];
-		arrayPassed[id1] = arrayPassed[id2];
-		arrayPassed[id2] = tmp;
-	}
-
-	private static int[] getArrayFromString(String numbersStr) {
-		String[] numbers = numbersStr.split(" ");
-		return Arrays.stream(numbers).mapToInt(Integer::valueOf).toArray();
-	}
 
 //	public class Heap {
 //		Heap left;
