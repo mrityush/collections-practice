@@ -1,4 +1,4 @@
-package normal;
+package dspractice.normal;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -16,15 +16,15 @@ public class MaxIncreasingSubSeqCount {
 		System.out.println("Enter array");
 		String numbersStr = sc.nextLine();
 		int[] array = getArrayFromString(numbersStr);
-		int count = getCount(array, 0, array.length);
-		System.out.println(maxRef);
+		int count = getCount(array, array.length);
+		System.out.println(count);
 	}
 
-	private static int getCount(int[] array, int start, int end) {
+	private static int getCount(int[] array, int end) {
 		if (end == 1) return 1;
 		int maxEndinghere = 1, nextLayerCount ;
 		for (int i = 1; i < end; i++) {
-			nextLayerCount = getCount(array, start, i);
+			nextLayerCount = getCount(array, i);
 			if(array[i-1] < array[end - 1] && nextLayerCount + 1 > maxEndinghere){
 				maxEndinghere = nextLayerCount + 1;
 			}
