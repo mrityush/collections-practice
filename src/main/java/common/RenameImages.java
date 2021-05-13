@@ -35,5 +35,6 @@ public class RenameImages {
 	public List<Integer> findDisappearedNumbers(int[] nums) {
 		int sum = nums.length * (nums.length + 1) / 2;
 		int arrSum = Arrays.stream(nums).sum();
+		return null;
 	}
 }
