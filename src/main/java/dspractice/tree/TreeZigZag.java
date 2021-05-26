@@ -1,4 +1,4 @@
-package tree;
+package dspractice.tree;
 
 import java.util.Scanner;
 
